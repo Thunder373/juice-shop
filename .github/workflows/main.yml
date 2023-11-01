@@ -19,7 +19,7 @@ jobs:
       run: npm install
 
     - name: Run SAST
-      uses: python-actions/setup-python@v2
+      uses: actions/setup-python@v2
       with:
         python-version: '3.x' # Make sure Python 3 is installed
     - run: pip install bandit # Install Bandit
