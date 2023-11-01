@@ -18,3 +18,21 @@ jobs:
     - name: Install dependencies
       run: npm install
 
+    - name: Run SAST
+      uses: python-actions/setup-python@v2
+      with:
+        python-version: '3.x' # Make sure Python 3 is installed
+    - run: pip install bandit # Install Bandit
+    - run: bandit -r . -f json -o sast-report.json # Run Bandit and save the report
+
+    - name: Run DAST
+      run: |
+        # Use OWASP ZAP as a free DAST tool
+        wget https://github.com/zaproxy/zaproxy/releases/download/v2.10.0/ZAP_2.10.0_Core.zip
+        unzip ZAP_2.10.0_Core.zip
+        ./ZAP_2.10.0/zap.sh -daemon -port 8081
+        npm install -g zaproxy
+        zaproxy --spider target-url
+        zaproxy --active-scan target-url
+        zaproxy --report target-url -f json -s dast-report.json
+
