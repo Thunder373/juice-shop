@@ -1,11 +1,11 @@
-# -- stackhawk configuration for juice --
+# -- stackhawk configuration for juice-shop --
 app:
   # -- An applicationId obtained from the StackHawk platform. --
-  applicationId: a098b209-fe42-4606-9ca1-f1c9da709e5e # (required)
+  applicationId: 9d6ab880-1a74-4422-b1f2-0957c260303d # (required)
   # -- The environment for the applicationId defined in the StackHawk platform. --
   env: Pre-Production # (required)
   # -- The url of your application to scan --
-  host: http://localhost:3000 # (required)
+  host: http://54.77.175.123 # (required)
 
 
 # -- Customized Configuration for GraphQL/SOAP/OpenAPI, add here --
