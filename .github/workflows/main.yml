@@ -1,4 +1,4 @@
-name: Node.js CI/CD with SAST and DAST
+name: Node.js CI/CD with SAST and DAST ok
 
 on:
   push:
